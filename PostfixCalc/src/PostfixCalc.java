@@ -3,7 +3,7 @@ public class PostfixCalc {
         //empty constructor
     }
     public String notationChange(String str) {
-        
+
 
         return str;
     }
