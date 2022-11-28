@@ -59,7 +59,7 @@ public class PostfixCalc {
     public PostfixCalc(){
         //empty constructor
     }
-    public String notationChange(String str) {
+    public String answer(String str) {
 
 
         return str;
