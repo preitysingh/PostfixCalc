@@ -1,35 +1,36 @@
 //preity singh
 //my Stack class!
-public class Stack <E>{
+public class Stack <E> {
 
-    private int size= 0; //size variable
-    private Node<E> top =  null; //Node that references the current top at the moment
+    private int size = 0; //size variable
+    private Node<E> top = null; //Node that references the current top at the moment
 
-    public Stack(){
+    public Stack() {
         //empty constructor
     }
 
-    public Node<E> push(E data)   {
+    public Node<E> push(E data) {
         //the push method adds a new element on top of the stack
-        top = new Node<E>(data,top); //the old top is now the child of the new top
+        top = new Node<E>(data, top); //the old top is now the child of the new top
         return top;
     }
-    public  E pop() {
+
+    public E pop() {
         //the pop method removes and return the top element
         E data = null;
 
-        if(isEmpty()){
+        if (isEmpty()) {
             return null;
         } else {
             data = top.getData();
             Node<E> oldData = top; //creates a new node with the top element that is removed
-            top  = oldData.getChild(); //the new top is the child of the old one
+            top = oldData.getChild(); //the new top is the child of the old one
             oldData.setChild(null); //the old top has no child/link; it's cut off
         }
         return data;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         //check to see if this stack is empty
         return top == null;
     }
@@ -51,10 +52,14 @@ public class Stack <E>{
 
     public E peek() {
         //the peek method looks at the top element without removing it though
-        if (isEmpty()){
+        if (isEmpty()) {
             return null; //if there are no elements in the Stack
         } else {
             return top.getData();
         }
+    }
+
+    public Node <E> getTop() {
+        return top;
     }
 }
