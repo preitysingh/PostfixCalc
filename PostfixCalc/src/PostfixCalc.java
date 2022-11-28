@@ -1,3 +1,4 @@
+
 public class PostfixCalc <E> {
     Stack stack = new Stack();
     private String user = "";
@@ -53,4 +54,14 @@ public class PostfixCalc <E> {
         }
     }
 
-}
+=======
+public class PostfixCalc {
+    public PostfixCalc(){
+        //empty constructor
+    }
+    public String notationChange(String str) {
+
+
+        return str;
+    }
+
