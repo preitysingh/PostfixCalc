@@ -7,50 +7,61 @@ public class PostfixCalc <E> {
     private String error = null;
 
 
-    public void PostfixCalc(){ // empty constructor
+    public void PostfixCalc() { // empty constructor
     }
 
-    public void PostfixCalc(String user){
-        String[] use = user.split("",-1);
-        for(String test: use) {
+    public void PostfixCalc(String user) {
+        String[] use = user.split("", -1);
+        for (String test : use) {
             try {
                 user = user + postStack.push(Integer.parseInt(test));
-            } catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 if (!postStack.isEmpty() || postStack.getTop().getChild() == null) {
                     int first = postStack.pop();
                     int second = postStack.pop();
-                    switch (test){
-                        case "+": postStack.push(first + second); break;
-                        case "*": postStack.push(first * second); break;
-                        case "-": postStack.push(first - second); break;
+                    switch (test) {
+                        case "+":
+                            postStack.push(first + second);
+                            break;
+                        case "*":
+                            postStack.push(first * second);
+                            break;
+                        case "-":
+                            postStack.push(first - second);
+                            break;
                         case "/":
-                            if( second != 0){
-                                postStack.push(first/second);
+                            if (second != 0) {
+                                postStack.push(first / second);
                             } else {
                                 error = "divide by 0 error";
-                            } break;
-                        default: {};
+                            }
+                            break;
+                        default: {
+                        }
+                        ;
                     }
                 } else {
-                    error = "error"; break;
+                    error = "error";
+                    break;
                 }
             }
-        } answer = postStack.peek();
+        }
+        answer = postStack.peek();
     }
 
-    public void setUser(){ // setting the user string;
+    public void setUser() { // setting the user string;
         this.user = user;
     }
 
-    public String getUser(){
+    public String getUser() {
         return user;
     }
 
-    public String getAnswer(){
-        if (error != null){
+    public String getAnswer() {
+        if (error != null) {
             return error;
         } else {
             return Integer.toString(answer);
         }
     }
-
+}
