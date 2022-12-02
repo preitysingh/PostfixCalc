@@ -13,6 +13,16 @@ import java.io.PrintWriter;
         String result = p.getAnswer(); //calculations
         equation.println("RESULT = " + result); //(hopefully) print result to answer file
         out.close(); //close the file
+       ---------
+        PostfixCalc p =  new PostfixCalc();
+        BufferedReader infix = new BufferedReader(new FileReader("PostfixEquation.rtf"));
+        String equation = infix.readLine();
+        //String result;
+        System.out.println(" Here is the equation before: " + equation);
+        while(equation  != null){
+            p.getAnswer(infix);
+            System.out.println( " Result = " + p);
+        }
     }
 }
  */
