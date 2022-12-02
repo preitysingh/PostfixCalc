@@ -5,16 +5,16 @@ public class PostfixCalc <E> {
     private int answer;
     private String error = null;
 
-    public void PostfixCalc(){
+    public void PostfixCalc() {
     }
 
-    public void calculate() {
+    public void calculate(String user) {
         String[] use = user.split("", -1);
         for (String test : use) {
             try {
                 postStack.push(Integer.parseInt(test));
             } catch (NumberFormatException e) {
-                if (!(postStack.getTop().getChild() == null || postStack.isEmpty())){
+                if (!(postStack.isEmpty()) || postStack.getTop().getChild() == null) {
                     int first = postStack.pop();
                     int second = postStack.pop();
                     switch (test) {
@@ -47,13 +47,6 @@ public class PostfixCalc <E> {
         answer = postStack.peek();
     }
 
-    public void setUser(String user) { // setting the user string;
-        this.user = user;
-    }
-
-    public String getUser() {
-        return user;
-    }
 
     public String getAnswer() {
         if (error != null) {
@@ -63,4 +56,3 @@ public class PostfixCalc <E> {
         }
     }
 }
-
